@@ -25,6 +25,21 @@ var student = {
  ************************************************************/
 // task 1
 
+var lastCourse = courses.pop();
+console.log(lastCourse);
+
+var Course = (code, name, hours, url) => {
+    this.code = code;
+    this.name = name;
+    this.hours = hours;
+    this.url = url;
+}
+
+var ibc233 = new Course('IBC233', 'System i Business Computing', 4, 'https://ict.senecacollege.ca/course/int222?q=course/ibc233');
+var oop244 = new Course('OOP244', 'Introduction to Object Oriented Programming in C++', 4, 'https://ict.senecacollege.ca/course/int222?q=course/ibc233');
+var ibc233 = new Course('IBC233', 'System i Business Computing', 4, 'https://ict.senecacollege.ca/course/int222?q=course/ibc233');
+var ibc233 = new Course('IBC233', 'System i Business Computing', 4, 'https://ict.senecacollege.ca/course/int222?q=course/ibc233');
+
 
 
 
