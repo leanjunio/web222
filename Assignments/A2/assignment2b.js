@@ -36,10 +36,10 @@ var student = {
  * Start your Part B code here. Do not change the code above.
  ************************************************************/
 // task 1
-console.log("*** Task 1 ***\n");
+console.log("\n*** Task 1 ***\n\n");
 var lastCourse = courses.pop();
 console.log(`Course ${lastCourse.code} was deleted from the array (courses)`);
-console.log(`Adding new course object into the the array (courses)\n`);
+console.log(`Adding new course object into the the array (courses)\n\n`);
 
 var ibc233 = { code: 'IBC233', name:'iSERIES Business Computing', hours: 4, url: 'https://cs.senecac.on.ca/~ibc233/'};
 var oop244 = { code: 'OOP244', name:'Introduction to Object Oriented Programming', hours: 4, url: 'https://scs.senecac.on.ca/~oop244/index.html'};
@@ -54,47 +54,45 @@ courses.push(dbs201);
 console.log('Course objects in the array (courses):');
 
 for (let i = 0; i < courses.length; i++) {
-    console.log(`${courses[i].code}, ${courses[i].name}, ${courses[i].hours}/week website: ${courses[i].url}`);
+    console.log(`${courses[i].code}, ${courses[i].name}, ${courses[i].hours} hours/week, website: ${courses[i].url}`);
 }
 
 // task 2
-console.log("\n*** Task 2 ***\n");
+console.log("\n*** Task 2 ***\n\n");
 
 var students = [];
 
+var johnSmith = Object.create(student);
 
-student.name = 'John Smith';
-student.dob = '9','10','1999';
-student.sid = '010456101'
-student.program = 'CPA';
-student.gpa = 4;
+johnSmith.name = 'John Smith';
+johnSmith.sid = '010456101'
+johnSmith.dob = new Date('1999-9-10');
+johnSmith.program = 'CPA';
+johnSmith.gpa = 4;
 
-students.push(student);
+var jimCarrery = Object.create(student);
+jimCarrery.name = 'Jim Carrey';
+jimCarrery.sid = '012345678'
+jimCarrery.dob = new Date('1992-1-17');
+jimCarrery.program = 'CPD';
+jimCarrery.gpa = 3.5;
 
-student.name = 'Jim Carrey';
-student.dob = '1/17/1992';
-student.sid = '012345678'
-student.program = 'CPD';
-student.gpa = 3.5;
+var justinBieber = Object.create(student);
+justinBieber.name = 'Justin Bieber';
+justinBieber.sid = '0987654321'
+justinBieber.dob = new Date('1994-3-1');
+justinBieber.program = 'CAN';
+justinBieber.gpa = 3;
 
-students.push(student);
+var justinTrudeau = Object.create(student);
+justinTrudeau.name = 'Justin Trudeau';
+justinTrudeau.sid = '123456789'
+justinTrudeau.dob = new Date('1992-1-12');
+justinTrudeau.program = 'CAN';
+justinTrudeau.gpa = 4;
 
-student.name = 'Justin Bieber';
-student.dob = '3/1/1994';
-student.sid = '0987654321'
-student.program = 'CAN';
-student.gpa = 3;
-
-students.push(student);
-
-student.name = 'Justin Trudeau';
-student.dob = '1/12/1992';
-student.sid = '123456789'
-student.program = 'CAN';
-student.gpa = 4;
-
-students.push(student);
+students.push(johnSmith, jimCarrery, justinBieber, justinTrudeau)
 
 console.log('Student objects in the array (students):\n');
 
-students.forEach((x, index) => `${index}: ${x.toString()}`);
+students.forEach((x, index) => console.log(`${index}: ${x.toString()}`));
