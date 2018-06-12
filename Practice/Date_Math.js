@@ -35,5 +35,9 @@ function getGCD(num1, num2) { // insert code here
 
 // Task 5
 const dog1 = {
-    
+    name: Bulma,
+    feet: 3
 }
+
+const Krypto = Object.create(dog1);
+const Marks = Object.create(dog1);
