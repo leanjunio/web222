@@ -26,9 +26,6 @@ window.onload = function() {
     var two = document.getElementById('two');
     var ul = document.createElement('UL');
 
-    var files = [];
-    var dir = [];
-
     // Separate files and directory
     for (var i = 0; i < directory.length; i++) {
         // just make them an li
