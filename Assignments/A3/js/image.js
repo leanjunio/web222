@@ -9,7 +9,7 @@ var images = [
 ];
 
 window.onload = () => {
-    html = "";
+    var html = "";
     for (var i = 0; i < images.length; i++) {
         html += `<figure style="margin-left: 0px;"><img src="${images[i].url}" alt="${images[i].alt}"></figure><caption>${images[i].caption}</caption>`;
     }
