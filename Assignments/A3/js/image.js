@@ -7,3 +7,11 @@ var images = [
     {caption: "Azerbaijan Forest", alt: "Forest", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Azerbaijan_forest_3.JPG/320px-Azerbaijan_forest_3.JPG"},
     {caption: "Indonesian Jungle", alt: "Jungle", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Indonesian_jungle3%2C_Zoo_Prague.jpg/320px-Indonesian_jungle3%2C_Zoo_Prague.jpg"}
 ];
+
+window.onload = () => {
+    html = "";
+    for (var i = 0; i < images.length; i++) {
+        html += `<figure style="margin-left: 0px;"><img src="${images[i].url}" alt="${images[i].alt}"></figure><caption>${images[i].caption}</caption>`;
+    }
+    $("#first").first().append(html);
+}
