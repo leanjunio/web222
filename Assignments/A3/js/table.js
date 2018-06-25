@@ -7,3 +7,15 @@ var users = [
     {first_name: "Timothy", last_name: "McAlpine", age: 37, email: "Timbo72469@usermail.com"},
     {first_name: "Sarah", last_name: "Connor", age: 19, email: "SarahC6320@usermail.com"}
 ];
+
+window.onload = function () {
+    
+    $('#table tr').not(':first').not(':last').remove();
+    var html = "";
+    
+    for (var i = 0; i < users.length; i++) {
+        html += '<tr><td>' + users[i].first_name + '</td><td>' + users[i].last_name + '</td><td>' + users[i].age + '</td><td>' +  '<a href="mailto:' + users[i].email + '">' + users[i].email + '</a></td></tr>';
+    }
+
+    $('#table tr').first().after(html);
+};
