@@ -9,6 +9,51 @@
 * electronically from any other source (including web sites) or distributed to 
 * other students. 
 * 
-* Name: ______________________ Student ID: ______________ Date: ________________ 
+* Name: Lean Junio Student ID: 019-109-123 Date: 2018-07-14 
 * 
 ********************************************************************************/
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+body {
+    background: #ffffff;
+}
+
+nav, footer {
+    background: #ffdcdc;
+}
+
+header {
+    border: 2px black solid;
+    padding: 5px;
+}
+
+h1.app-title {
+    font-family: 'Lato', sans-serif;
+    font-size: 12pt;
+    color: #1b0a0a;
+}
+
+.main-table-container {
+    max-height: 40vh;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.main-table-top th {
+    border: 1px black solid;
+    color: #b46262;
+    font-size: 15pt;
+    font-family: 'Lato', sans-serif;
+}
+
+.main-table td {
+    border: 1px black solid;
+    color: #b46262;
+    font-size: 15pt;
+    font-family: 'Lato', sans-serif;
+}
+
+.main-table p span {
+    padding: 3px;
+    background: #ccc;
+}
