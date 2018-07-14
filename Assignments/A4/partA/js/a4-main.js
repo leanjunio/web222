@@ -10,33 +10,35 @@ window.onload = () => {
 };
 
 const loadTableWithFilters = () => {
+    document.getElementById('main-table-body').innerHTML = "";
     petData.forEach(element => {
-        let tr = document.createElement("tr");
-        let td = document.createElement("td");
-        let td2 = document.createElement("td");
-        let img = document.createElement("img");
-        let h4 = document.createElement("h4");
-        let p = document.createElement("p");
-        let span = document.createElement("span");
-
-        img.setAttribute("src", element.image.src);
-        img.setAttribute("alt", element.image.alt);
-        img.setAttribute("height", element.image.height);
-        img.setAttribute("width", element.image.width);
-
-        h4.innerHTML = element.name;
-        p.innerHTML = element.description;
-        span.innerHTML = "Age: " + element.age + " years old.";
-
-        td.appendChild(img);
-        td2.appendChild(h4);
-        td2.appendChild(p);
-        td2.appendChild(span);
-
-        tr.appendChild(td);
-        tr.appendChild(td2);
-
-        document.getElementById('main-table-body').appendChild(tr);
+        if (element.type == filterType && (element.age >= filterAgeMin && element.age <= filterAgeMax)) {
+            let tr = document.createElement("tr");
+            let td = document.createElement("td");
+            let td2 = document.createElement("td");
+            let img = document.createElement("img");
+            let h4 = document.createElement("h4");
+            let p = document.createElement("p");
+            let span = document.createElement("span");
+    
+            img.setAttribute("src", element.image.src);
+            img.setAttribute("alt", element.image.alt);
+            img.setAttribute("height", element.image.height);
+            img.setAttribute("width", element.image.width);
+    
+            h4.innerHTML = element.name;
+            p.innerHTML = element.description;
+            span.innerHTML = "Age: " + element.age + " years old.";
+    
+            td.appendChild(img);
+            td2.appendChild(h4);
+            td2.appendChild(p);
+            td2.appendChild(span);
+    
+            tr.appendChild(td);
+            tr.appendChild(td2);
+            document.getElementById('main-table-body').appendChild(tr);
+        }
     });
 };
 
@@ -60,6 +62,7 @@ const filterBird = () => {
 
 //  must be invoked when the user clicks "< 1 year" 
 const filter_zero_1  = () => {
+    filterType = '';
     filterAgeMin = 0;
     filterAgeMax = 1;
     loadTableWithFilters();
@@ -67,6 +70,7 @@ const filter_zero_1  = () => {
 
 // must be invoked when the user clicks "1 - 3 years" 
 const filter_1_3  = () => {
+    filterType = '';
     filterAgeMin = 1;
     filterAgeMax = 3;
     loadTableWithFilters();
@@ -74,6 +78,7 @@ const filter_1_3  = () => {
 
 // must be invoked when the user clicks "4+ years"
 const filter_4_plus  = () => {
+    filterType = '';
     filterAgeMin = 4;
     filterAgeMax = Number.MAX_VALUE;
     loadTableWithFilters();
