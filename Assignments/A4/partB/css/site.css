@@ -1,0 +1,99 @@
+/* Set width and margin */
+.main-container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+/* set with and float left */
+.main-container nav {
+    width: 30%;
+    float: left;
+}
+
+/* set width and float to the right */
+.main-container .main {
+    width: 70%;
+    float: right;
+}
+
+/* set background, border, margin and padding */
+.main-container header {
+    padding: 10px;
+    background: #eee;
+    border: 1px #ccc solid;
+    margin: 0 0 30px 0;
+}
+
+/* set font and container alignments */
+.main-container header h1 {
+    width: 70%;
+    font-size: 24px;
+    float: right;
+    text-align: right;
+    margin-top: 10px;
+}
+
+/* Set background color, border, font-size, and paddign */
+.main-container footer {
+    clear: both;
+    padding: 20px 10px;
+    background-color: #eee;
+    border-top: 1px #ccc solid;
+    font-size: 13px;
+}
+
+/* set logo width, font size and weight */
+#logo {
+    width: 30%;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+/* set width and vertical alignment */
+#logo img {
+    width: 94px;
+    vertical-align: middle;
+}
+
+/* no bullets */
+nav ul {
+    list-style-type: none;
+}
+
+/* make into block level element and set padding */
+nav ul a {
+    display: block;
+    text-decoration: none;
+    padding: 5px;
+}
+
+/* Set dimensions for the prvince class */
+div.province {
+    width: 30%;
+    float: left;
+    margin: 8px;
+    height: 310px;
+}
+
+/* set scrollbar and height */
+div.province .description {
+    max-height: 165px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin: 8px;
+}
+
+/* set link css for province */
+div.province a {
+    display: block;
+    text-align: center;
+    background: #555;
+    color: #eee;
+    text-decoration: none;
+    padding: 5px;
+}
+
+/* set width of flag image */
+img.flag {
+    width: 100%;
+}
