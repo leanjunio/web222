@@ -9,37 +9,71 @@ window.onload = () => {
     loadTableWithFilters();
 };
 
-const loadTableWithFilters = () => {
+// create the table based on the passed element
+const createTable = (element) => {
     document.getElementById('main-table-body').innerHTML = "";
-    petData.forEach(element => {
-        if (element.type == filterType && (element.age >= filterAgeMin && element.age <= filterAgeMax)) {
-            let tr = document.createElement("tr");
-            let td = document.createElement("td");
-            let td2 = document.createElement("td");
-            let img = document.createElement("img");
-            let h4 = document.createElement("h4");
-            let p = document.createElement("p");
-            let span = document.createElement("span");
+    element.forEach(el => {
+        let tr = document.createElement("tr");
+        let td = document.createElement("td");
+        let td2 = document.createElement("td");
+        let img = document.createElement("img");
+        let h4 = document.createElement("h4");
+        let p = document.createElement("p");
+        let span = document.createElement("span");
     
-            img.setAttribute("src", element.image.src);
-            img.setAttribute("alt", element.image.alt);
-            img.setAttribute("height", element.image.height);
-            img.setAttribute("width", element.image.width);
+        img.setAttribute("src", el.image.src);
+        img.setAttribute("alt", el.image.alt);
+        img.setAttribute("height", el.image.height);
+        img.setAttribute("width", el.image.width);
     
-            h4.innerHTML = element.name;
-            p.innerHTML = element.description;
-            span.innerHTML = "Age: " + element.age + " years old.";
+        h4.innerHTML = el.name;
+        p.innerHTML = el.description;
+        span.innerHTML = "Age: " + el.age + " years old.";
     
-            td.appendChild(img);
-            td2.appendChild(h4);
-            td2.appendChild(p);
-            td2.appendChild(span);
+        td.appendChild(img);
+        td2.appendChild(h4);
+        td2.appendChild(p);
+        td2.appendChild(span);
     
-            tr.appendChild(td);
-            tr.appendChild(td2);
-            document.getElementById('main-table-body').appendChild(tr);
-        }
+        tr.appendChild(td);
+        tr.appendChild(td2);
+        document.getElementById('main-table-body').appendChild(tr);
     });
+}
+
+const loadTableWithFilters = () => {
+    
+    // Filter data into arrays
+    const all = petData.filter(el => el.age > 0);
+    const dogs = petData.filter(el => el.type == 'dog');
+    const cats = petData.filter(el => el.type == 'cat');
+    const birds = petData.filter(el => el.type == 'bird');
+
+    const older = petData.filter(el => (el.age >= 4 && el.age <= Number.MAX_VALUE));
+    const young = petData.filter(el => (el.age >= 0 && el.age <= 1));
+    const mid = petData.filter(el => (el.age >= 1 && el.age <= 3));
+
+    // Conditional calls
+    if (filterType == 'dog' && filterAgeMax == Number.MAX_VALUE && filterAgeMin == 0) {
+        createTable(dogs);
+    }
+    if (filterType == 'cat' && filterAgeMax == Number.MAX_VALUE && filterAgeMin == 0) {
+        createTable(cats);
+    }
+    if (filterType == 'bird' && filterAgeMax == Number.MAX_VALUE && filterAgeMin == 0) 
+        createTable(birds);
+    if (filterAgeMax == Number.MAX_VALUE && filterAgeMin == 0 && filterType == '') {
+        createTable(petData);
+    }
+    if (filterType == '' && filterAgeMin == 4 && filterAgeMax == Number.MAX_VALUE) {
+        createTable(older);
+    }
+    if (filterType == '' && filterAgeMin == 0 && filterAgeMax == 1) {
+        createTable(young);
+    }
+    if (filterType == '' && filterAgeMin == 1 && filterAgeMax == 3) {
+        createTable(mid);
+    }
 };
 
 // must be invoked when the user clicks "Dogs"
