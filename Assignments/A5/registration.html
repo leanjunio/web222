@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Registration</title>
-    <link rel="stylesheet" href="normalize1.css">
 </head>
 <body>
     <!-- 
@@ -18,8 +17,66 @@
         Name: Lean Junio
         Dated: July 18 2018
      -->
-     <header></header>
-     <nav></nav>
-     <footer></footer>
+    <h1>Registration</h1>
+    <div class="forms">
+        <form action="https://httpbin.org/post" method="post">
+        
+            <!-- First name -->
+            <label for="firstName">First Name</label>
+            <input type="text" required><br>
+
+            <!-- Last name -->
+            <label for="lastName">Last Name</label>
+            <input type="text" required><br>
+
+            <!-- Shipping Address -->
+            <div class="shipping">
+                <!-- Unit -->
+                <label for="unitNumber">Unit #</label>
+                <input type="number" required><br>
+
+                <!-- Street -->
+                <label for="streetNumber">Street #</label>
+                <input type="number" required><br>
+
+                <!-- Street Name -->
+                <label for="streetName">Street Name</label>
+                <input type="text" required><br>
+
+                <!-- City -->
+                <label for="city">City</label>
+                <input type="text" required><br>
+
+                <!-- Province -->
+                <label for="province">Province</label>
+                <input type="text" required value="ONTARIO"><br>
+
+                <!-- Postal Code -->
+                <label for="postalCode">Postal Code</label>
+                <input type="text" required><br>
+
+            </div>
+            <!-- Phone -->
+            <label for="phoneNUmber">Phone #</label>
+            <input type="number" required><br>
+
+            <!-- Email -->
+            <label for="email">Email</label>
+            <input type="email" required><br>
+
+            <!-- Username -->
+            <label for="userName">Username</label>
+            <input type="text" required><br>
+
+            <!-- PW -->
+            <label for="password">password</label>
+            <input type="password" required><br>
+
+            <!-- Submit -->
+            <input type="submit" value="Submit">
+            <input type="reset" value="RESET" onclick="clear()">
+        </form>
+    </div>
+    <script src="registration.js"></script>
 </body>
 </html>
