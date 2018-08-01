@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Registration - Junio</title>
+    <title>Assignment 5</title>
+    <link rel="stylesheet" href="normalize1.css">
 </head>
 <body>
     <!-- 
@@ -17,71 +18,74 @@
         Name: Lean Junio
         Dated: July 18 2018
      -->
-    <h1>Registration</h1>
-    <div class="forms">
-        <form action="https://httpbin.org/post" method="post">
-        
-            <!-- First name -->
-            <label for="firstName">First Name</label>
-            <input type="text" required><br>
+     <header>HEADER</header>
+     <div class="center">
+        <nav>Navigation</nav>
+        <div class="body">
+            <form novalidate>
 
-            <!-- Last name -->
-            <label for="lastName">Last Name</label>
-            <input type="text" required><br>
+                <!-- First Name -->
+                <label for="fName">First Name</label>
+                <input required type="text" name="fName" id="fName"><br>
+                
+                <!-- Last Name -->
+                <label for="lName">Last Name</label>
+                <input required type="text" name="lName" id="lName"><br>
 
-            <!-- Shipping Address -->
-            <div class="shipping">
-                <!-- Unit -->
-                <label for="unitNumber">Unit #</label>
-                <input type="number" required><br>
-
-                <!-- Street -->
+                <!-- Unit # -->
+                <label for="unitNumber">Unit#</label>
+                <input required type="text" name="unitNumber" id="unit"><br>
+                
+                <!-- Street # -->
                 <label for="streetNumber">Street #</label>
-                <input type="number" required><br>
-
+                <input required type="text" name="streetNumber" id="streetNum"><br>
+                
                 <!-- Street Name -->
                 <label for="streetName">Street Name</label>
-                <input type="text" required><br>
+                <input required type="text" name="streetName" id="street" pattern="^[a-zA-Z]+$"><br>
 
                 <!-- City -->
                 <label for="city">City</label>
-                <input type="text" required><br>
-
-                <!-- Province -->
-                <label for="province">Province</label>
-                <select name="province" id="province" required>
-                    <option selected="selected" value="ontario">ONTARIO</option>
-                </select><br>
+                <input required type="text" name="city" id="city" pattern="^[a-zA-Z]+$"><br>
 
                 <!-- Postal Code -->
                 <label for="postalCode">Postal Code</label>
-                <input type="text" required><br>
+                <input required type="text" name="postalCode" id="postalCode" pattern="^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$"><br>
 
-            </div>
-            <!-- Phone -->
-            <label for="phoneNUmber">Phone #</label>
-            <input type="number" required><br>
+                <!-- Select Province -->
+                <label for="provinces">Select a province</label><br>
+                <select name="province" id="province"></select>
 
-            <!-- Email -->
-            <label for="email">Email</label>
-            <input type="email" required><br>
+                <!-- Phone Number -->
+                <br><label for="phone">Phone Number</label>
+                <input required type="text" name="phone" id="phone" pattern="^[2-9]\d{2}-\d{3}-\d{4}$"><br>
+                
+                <!-- Email -->
+                <label for="email">Email</label>
+                <input required type="email" name="email" id="email"><br>
+                
+                <!-- Username -->
+                <label for="username">Username</label>
+                <input required type="text" name="username" id="username" pattern="^[A-Z][a-zA-Z]{3,}$"><br>
+                
+                <!-- Password -->
+                <label for="password">Password</label>
+                <input required type="password" name="password" id="password"><br>
 
-            <!-- Username -->
-            <label for="userName">Username</label>
-            <input type="text" required><br>
-
-            <!-- PW -->
-            <label for="password">password</label>
-            <input type="password" required><br>
-
-            <input type="hidden" name="lastName" id="lastName" value="Junio" />
-            <input type="hidden" name="studentId" id="studentId" value="019109123" />
-            
-            <!-- Submit -->
-            <input type="submit" value="Submit">
-            <input type="reset" value="RESET" onclick="clear()">
-        </form>
-    </div>
-    <script src="registration.js"></script>
+                <!-- Password Match -->
+                <label for="passwordMatch">Password Match</label>
+                <input required type="password" name="password" id="passwordMatch"><br>
+                
+                <!-- Submit -->
+                <button onclick="validate()">Submit</button>
+                
+            </form>
+        </div>
+        <div class="side">
+            <p>Side Panel</p>
+        </div>
+     </div>
+     <footer>FOOTER</footer>
+     <script src="registration.js"></script>
 </body>
 </html>

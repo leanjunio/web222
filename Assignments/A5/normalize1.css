@@ -59,6 +59,11 @@ nav {
     font-size: 25pt;
 }
 
+.body * {
+    line-height: 10px;
+    box-shadow: none;
+}
+
 .side {
     line-height: 225px;
     text-align: center;
@@ -76,4 +81,13 @@ nav {
     font-weight: 700;
     text-align: center;
 
+}
+
+.submit, .reset {
+    line-height: 25px;
+}
+
+label {
+    font-size: 12pt;
+    line-height: 10px;
 }
