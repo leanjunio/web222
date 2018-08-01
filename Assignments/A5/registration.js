@@ -9,8 +9,20 @@ function clear() {
 // Initiated when submit is clicked
 // 
 function validate() {
-    passWordValidation(passWord)
-
+    console.log(`Validate clicked`);
+    var firstName = document.getElementById('fName').value;
+    var lastName = document.getElementById('lName').value;
+    var userName = document.getElementById('username').value;
+    var passWord = document.getElementById('password').value;
+    var unitNumber = document.getElementById('unit').value;
+    var streetNumber = document.getElementById('streetNum').value;
+    var streetName = document.getElementById('street').value;
+    var city = document.getElementById('city').value;
+    var postalCode = document.getElementById('postalCode').value;
+    var province = document.getElementById('province').value;
+    var phoneNumber = document.getElementById('phone').value;
+    var email = document.getElementById('email').value;
+    var phoneNumber = document.getElementById('phone').value;
 }
 
 function displayError(msg) {
@@ -29,6 +41,49 @@ function createDropdownProvince() {
         option.innerHTML = provinces[i].toUpperCase();
         select.appendChild(option);
     }
+}
+
+// Tests the validation for phone number format
+// 
+function phoneValidation(phoneNumber) {
+    var pattern = new RegExp("^[2-9]\d{2}-\d{3}-\d{4}$");
+    if (!pattern.test(phoneNumber)) {
+        displayError(`The Phone Number must be in the following format: XXX-XXX-XXXX`);
+    } else return pattern.test(phoneNumber);
+}
+
+// Tests the validation for postal code
+// 
+function zipCodeValidation(postalCode) {
+    var pattern = new RegExp('/^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/');
+    if (!pattern.test(postalCode)) {
+        displayError(`The postal code must be in the following format: C1A1A7`);
+    } else return pattern.test(postalCode);
+}
+
+// Test the validation for city
+// 
+function cityValidation(city) {
+    var pattern = new RegExp('/^[a-zA-Z]+$/');
+    if (!pattern.test(city))
+        displayError(`The city must only contain letters`);
+    else return pattern.test(city);
+}
+
+function streetNameValidation(streetName) {
+    var pattern = new RegExp('/^[a-zA-Z]+$/');
+    if (!pattern.test(streetName))
+        displayError(`The street name cannot contain digits`);
+    else return pattern.test(streetName);
+}
+
+// Test the validation for the username
+// 
+function userNameValidation(userName) {
+    var pattern = new RegExp('^[A-Z][a-zA-Z]{3,}$');
+    if (!pattern.test(userName))
+        displayError(`Username is greater than 6 characters or does not start with a capital letter`);
+    else return pattern.test(userName);
 }
 
 // password validation
