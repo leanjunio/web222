@@ -1,7 +1,6 @@
 var provinces = ['Ontario', 'Quebec', 'Nova Scotia', 'New Brunswick', 'Manitoba', 'British Columbia', 'Prince Edward Island', 'Saskatchewan', 'Alberta', 'Newfoundland and Labrador'];
 
 function clear() {
-    // Get all inptus
     var inputs = document.querySelectorAll('input');
     inputs.innerHMTL = "";
 }
@@ -10,24 +9,31 @@ function clear() {
 // 
 function validate() {
     console.log(`Validate clicked`);
-    var firstName = document.getElementById('fName').value;
-    var lastName = document.getElementById('lName').value;
-    var userName = document.getElementById('username').value;
-    var passWord = document.getElementById('password').value;
-    var unitNumber = document.getElementById('unit').value;
-    var streetNumber = document.getElementById('streetNum').value;
-    var streetName = document.getElementById('street').value;
-    var city = document.getElementById('city').value;
-    var postalCode = document.getElementById('postalCode').value;
-    var province = document.getElementById('province').value;
-    var phoneNumber = document.getElementById('phone').value;
-    var email = document.getElementById('email').value;
-    var phoneNumber = document.getElementById('phone').value;
+    var firstName = document.getElementById('fName').value.trim();
+    var lastName = document.getElementById('lName').value.trim();
+    var unitNumber = document.getElementById('unit').value.trim();
+    var province = document.getElementById('province').value.trim();
+    var streetNumber = document.getElementById('streetNum').value.trim();
+    var email = document.getElementById('email').value.trim();
+
+    // Validate
+    var userName = document.getElementById('username').value.trim();
+    var passWord = document.getElementById('password').value.trim();
+    var streetName = document.getElementById('street').value.trim();
+    var city = document.getElementById('city').value.trim();
+    var postalCode = document.getElementById('postalCode').value.trim();
+    var phoneNumber = document.getElementById('phone').value.trim();
+
+    console.log(`Username validation: ${passWordValidation(passWord)}`);
+    console.log(`Phone Number validation: ${phoneValidation(phoneNumber)}`);
+
+
 }
 
 function displayError(msg) {
     console.log(msg);
 }
+
 // Creates the select elements from the provinces array
 // 
 function createDropdownProvince() {
@@ -46,10 +52,7 @@ function createDropdownProvince() {
 // Tests the validation for phone number format
 // 
 function phoneValidation(phoneNumber) {
-    var pattern = new RegExp("^[2-9]\d{2}-\d{3}-\d{4}$");
-    if (!pattern.test(phoneNumber)) {
-        displayError(`The Phone Number must be in the following format: XXX-XXX-XXXX`);
-    } else return pattern.test(phoneNumber);
+    return (phoneNumber.charAt(3) == '-' && phoneNumber.charAt(7) == '-');
 }
 
 // Tests the validation for postal code
@@ -86,13 +89,13 @@ function userNameValidation(userName) {
     else return pattern.test(userName);
 }
 
-// password validation
+// password validation - must start with letter, at least 6 characters
 // 
 function passWordValidation(passWord) {
-    var pattern = new RegExp('^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,8}$');
-    if (!pattern.test(passWord))
-        displayError(`Pasword must be 8 characters, contain at least 1 digit and 1 uppercase`);
-    else return passWordValidation(passWord);
+    if (passWord.length >= 6) {
+        if ((passWord.charCodeAt(0) >= 65 && passWord.charCodeAt(0) <= 90) || (passWord.charCodeAt(0) >= 97 && passWord.charCodeAt(0) <= 122))
+            return true;
+    } else return false;
 }
 
 window.onload = function() {
