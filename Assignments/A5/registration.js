@@ -1,5 +1,5 @@
 var provinces = ['Ontario', 'Quebec', 'Nova Scotia', 'New Brunswick', 'Manitoba', 'British Columbia', 'Prince Edward Island', 'Saskatchewan', 'Alberta', 'Newfoundland and Labrador'];
-
+var numbers = [48, 49, 50, 51, 52, 53, 54, 55, 56, 57];
 function clear() {
     var inputs = document.querySelectorAll('input');
     inputs.innerHMTL = "";
@@ -28,6 +28,8 @@ function validate() {
     console.log(`Password validation: ${passWordValidation(passWord)}`);
     console.log(`Phone Number validation: ${phoneValidation(phoneNumber)}`);
     console.log(`Zip Code validation: ${zipCodeValidation(postalCode)}`);
+    console.log(`City validation: ${cityValidation(city)}`);
+    console.log(`Street Name validation: ${streetNameValidation(streetName)}`);
 }
 
 function displayError(msg) {
@@ -79,17 +81,29 @@ function zipCodeValidation(postalCode) {
 // Test the validation for city
 // 
 function cityValidation(city) {
-    var pattern = new RegExp('/^[a-zA-Z]+$/');
-    if (!pattern.test(city))
-        displayError(`The city must only contain letters`);
-    else return pattern.test(city);
+    if (city.length > 0) {
+        for (var i = 0; i < city.length; ++i) {
+            if ((city.charCodeAt(i) >= 65 && city.charCodeAt(i) <= 90) || (city.charCodeAt(i) >= 97 && city.charCodeAt(i) <= 122)) {
+                return true;
+            }
+            else return false;
+        }
+    } else return false;
 }
 
 function streetNameValidation(streetName) {
-    var pattern = new RegExp('/^[a-zA-Z]+$/');
-    if (!pattern.test(streetName))
-        displayError(`The street name cannot contain digits`);
-    else return pattern.test(streetName);
+    var num;
+    if (streetName.length > 0) {
+        for (var i = 0; i < streetName.length; ++i) {
+            for (var x = 0; i < numbers.length; x++) {
+                if (streetName.charCodeAt(i) == numbers[x]) {
+                    num = true;
+                    break;
+                }
+            }
+            return !num;
+        }
+    } else return false;
 }
 
 // Test the validation for the username
