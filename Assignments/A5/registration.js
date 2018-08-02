@@ -27,8 +27,7 @@ function validate() {
     console.log(`Username validation: ${userNameValidation(userName)}`);
     console.log(`Password validation: ${passWordValidation(passWord)}`);
     console.log(`Phone Number validation: ${phoneValidation(phoneNumber)}`);
-
-
+    console.log(`Zip Code validation: ${zipCodeValidation(postalCode)}`);
 }
 
 function displayError(msg) {
@@ -59,10 +58,22 @@ function phoneValidation(phoneNumber) {
 // Tests the validation for postal code
 // 
 function zipCodeValidation(postalCode) {
-    var pattern = new RegExp('/^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/');
-    if (!pattern.test(postalCode)) {
-        displayError(`The postal code must be in the following format: C1A1A7`);
-    } else return pattern.test(postalCode);
+    var letter, num;
+    if (postalCode.length == 6) {
+        // check if letter
+        if ((postalCode.charCodeAt(0) >= 65 && postalCode.charCodeAt(0) <= 90) && (postalCode.charCodeAt(2) >= 65 && postalCode.charCodeAt(2) <= 90) && (postalCode.charCodeAt(4) >= 65 && postalCode.charCodeAt(4) <= 90)) {
+            letter = true;
+        }
+
+        if ((postalCode.charCodeAt(1) >= 48 && postalCode.charCodeAt(1) <= 57) && (postalCode.charCodeAt(3) >= 48 && postalCode.charCodeAt(3) <= 57) && (postalCode.charCodeAt(5) >= 48 && postalCode.charCodeAt(5) <= 57)) {
+            num = true;
+        }
+
+        if (letter && num) 
+            return true;
+        else return false;
+
+    } else return false;
 }
 
 // Test the validation for city
