@@ -24,7 +24,8 @@ function validate() {
     var postalCode = document.getElementById('postalCode').value.trim();
     var phoneNumber = document.getElementById('phone').value.trim();
 
-    console.log(`Username validation: ${passWordValidation(passWord)}`);
+    console.log(`Username validation: ${userNameValidation(userName)}`);
+    console.log(`Password validation: ${passWordValidation(passWord)}`);
     console.log(`Phone Number validation: ${phoneValidation(phoneNumber)}`);
 
 
@@ -83,18 +84,25 @@ function streetNameValidation(streetName) {
 // Test the validation for the username
 // 
 function userNameValidation(userName) {
-    var pattern = new RegExp('^[A-Z][a-zA-Z]{3,}$');
-    if (!pattern.test(userName))
-        displayError(`Username is greater than 6 characters or does not start with a capital letter`);
-    else return pattern.test(userName);
+    if (userName.length >= 6) {
+        if ((userName.charCodeAt(0) >= 65 && userName.charCodeAt(0) <= 90) || (userName.charCodeAt(0) >= 97 && userName.charCodeAt(0) <= 122))
+            return true;
+    } else return false;
 }
 
-// password validation - must start with letter, at least 6 characters
+// password validation - at least 8 characters
 // 
 function passWordValidation(passWord) {
-    if (passWord.length >= 6) {
-        if ((passWord.charCodeAt(0) >= 65 && passWord.charCodeAt(0) <= 90) || (passWord.charCodeAt(0) >= 97 && passWord.charCodeAt(0) <= 122))
+    var caps, lower, num;
+    if (passWord.length >= 8) {
+        for (var i = 0; i < passWord.length; i++) {
+            if (passWord.charCodeAt(i) >= 65 && passWord.charCodeAt(i) <= 90) { caps = true; }
+            if (passWord.charCodeAt(i) >= 97 && passWord.charCodeAt(i) <= 122) { lower = true; }
+            if (passWord.charCodeAt(i) >= 48 && passWord.charCodeAt(i) <= 57) { num = true; }
+        }
+        if (caps && num)
             return true;
+        else return false;
     } else return false;
 }
 
