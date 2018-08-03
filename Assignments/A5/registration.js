@@ -46,7 +46,7 @@ function createDropdownProvince() {
 // Tests the validation for phone number format
 // 
 function phoneValidation(phoneNumber) {
-    var pattern = new RegExp("^[2-9]\d{2}-\d{3}-\d{4}$");
+    var pattern = /^[2-9]\d{2}-\d{3}-\d{4}$/;
     if (!pattern.test(phoneNumber)) {
         displayError(`The Phone Number must be in the following format: XXX-XXX-XXXX`);
     } else return pattern.test(phoneNumber);
@@ -55,7 +55,7 @@ function phoneValidation(phoneNumber) {
 // Tests the validation for postal code
 // 
 function zipCodeValidation(postalCode) {
-    var pattern = new RegExp('/^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/');
+    var pattern = /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/;
     if (!pattern.test(postalCode)) {
         displayError(`The postal code must be in the following format: C1A1A7`);
     } else return pattern.test(postalCode);
@@ -64,14 +64,14 @@ function zipCodeValidation(postalCode) {
 // Test the validation for city
 // 
 function cityValidation(city) {
-    var pattern = new RegExp('/^[a-zA-Z]+$/');
+    var pattern = /^[a-zA-Z]+$/;
     if (!pattern.test(city))
         displayError(`The city must only contain letters`);
     else return pattern.test(city);
 }
 
 function streetNameValidation(streetName) {
-    var pattern = new RegExp('/^[a-zA-Z]+$/');
+    var pattern = /^[a-zA-Z]+$/;
     if (!pattern.test(streetName))
         displayError(`The street name cannot contain digits`);
     else return pattern.test(streetName);
@@ -80,7 +80,7 @@ function streetNameValidation(streetName) {
 // Test the validation for the username
 // 
 function userNameValidation(userName) {
-    var pattern = new RegExp('^[A-Z][a-zA-Z]{3,}$');
+    var pattern = /^[a-zA-Z]{6,}$/;
     if (!pattern.test(userName))
         displayError(`Username is greater than 6 characters or does not start with a capital letter`);
     else return pattern.test(userName);
@@ -89,7 +89,7 @@ function userNameValidation(userName) {
 // password validation
 // 
 function passWordValidation(passWord) {
-    var pattern = new RegExp('^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,8}$');
+    var pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,8}$/;
     if (!pattern.test(passWord))
         displayError(`Pasword must be 8 characters, contain at least 1 digit and 1 uppercase`);
     else return passWordValidation(passWord);
