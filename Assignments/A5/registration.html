@@ -22,8 +22,7 @@
      <div class="center">
         <nav>Navigation</nav>
         <div class="body">
-            <form novalidate>
-
+            <form name="Sign Up" action="https://httpbin.org/post" method="POST">
                 <!-- First Name -->
                 <label for="fName">First Name</label>
                 <input required type="text" name="fName" id="fName"><br>
@@ -42,7 +41,7 @@
                 
                 <!-- Street Name -->
                 <label for="streetName">Street Name</label>
-                <input required type="text" name="streetName" id="street" pattern="^[a-zA-Z]+$"><br>
+                <input required type="text" name="streetName" id="street"><br>
 
                 <!-- City -->
                 <label for="city">City</label>
@@ -50,7 +49,7 @@
 
                 <!-- Postal Code -->
                 <label for="postalCode">Postal Code</label>
-                <input required type="text" name="postalCode" id="postalCode" pattern="^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$"><br>
+                <input required type="text" name="postalCode" id="postalCode"><br>
 
                 <!-- Select Province -->
                 <label for="provinces">Select a province</label><br>
@@ -58,7 +57,7 @@
 
                 <!-- Phone Number -->
                 <br><label for="phone">Phone Number</label>
-                <input required type="text" name="phone" id="phone" pattern="^[2-9]\d{2}-\d{3}-\d{4}$"><br>
+                <input required type="text" name="phone" id="phone"><br>
                 
                 <!-- Email -->
                 <label for="email">Email</label>
@@ -66,7 +65,7 @@
                 
                 <!-- Username -->
                 <label for="username">Username</label>
-                <input required type="text" name="username" id="username" pattern="^[A-Z][a-zA-Z]{3,}$"><br>
+                <input required type="text" name="username" id="username"><br>
                 
                 <!-- Password -->
                 <label for="password">Password</label>
@@ -77,12 +76,13 @@
                 <input required type="password" name="password" id="passwordMatch"><br>
                 
                 <!-- Submit -->
-                <button onclick="validate()">Submit</button>
+                <input type="submit" value="Submit information" onclick="validate()" />
+                <input type="reset"  value="    Clear   " onclick="clear()"/>
                 
             </form>
         </div>
-        <div class="side">
-            <p>Side Panel</p>
+        <div id="side">
+
         </div>
      </div>
      <footer>FOOTER</footer>
