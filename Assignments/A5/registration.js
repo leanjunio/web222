@@ -1,5 +1,6 @@
 var provinces = ['Ontario', 'Quebec', 'Nova Scotia', 'New Brunswick', 'Manitoba', 'British Columbia', 'Prince Edward Island', 'Saskatchewan', 'Alberta', 'Newfoundland and Labrador'];
-var numbers = [48, 49, 50, 51, 52, 53, 54, 55, 56, 57];
+var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+
 function clear() {
     var inputs = document.querySelectorAll('input');
     inputs.innerHMTL = "";
@@ -30,10 +31,16 @@ function validate() {
     console.log(`Zip Code validation: ${zipCodeValidation(postalCode)}`);
     console.log(`City validation: ${cityValidation(city)}`);
     console.log(`Street Name validation: ${streetNameValidation(streetName)}`);
+    
+    if(!userNameValidation(userName) || !passWordValidation(passWord) || !phoneValidation(phoneNumber) || !zipCodeValidation(postalCode) || !cityValidation(city) || !streetNameValidation(streetName)) return false;
 }
 
 function displayError(msg) {
-    console.log(msg);
+    console.log('displayError() called');
+    var side = document.getElementById('side');
+    var pElem = document.createElement('p');
+    pElem.appendChild(msg);
+    side.appendChild(pElem);
 }
 
 // Creates the select elements from the provinces array
@@ -73,9 +80,15 @@ function zipCodeValidation(postalCode) {
 
         if (letter && num) 
             return true;
-        else return false;
+        else {
+            displayError('Postal Code must only include letters and numbers');
+            return false;
+        }
 
-    } else return false;
+    } else {
+        displayError('Postal code must not exceed 6 characters');
+        return false;
+    }
 }
 
 // Test the validation for city
@@ -91,19 +104,11 @@ function cityValidation(city) {
     } else return false;
 }
 
+// Street Name validation
+// 
 function streetNameValidation(streetName) {
-    var num;
-    if (streetName.length > 0) {
-        for (var i = 0; i < streetName.length; ++i) {
-            for (var x = 0; i < numbers.length; x++) {
-                if (streetName.charCodeAt(i) == numbers[x]) {
-                    num = true;
-                    break;
-                }
-            }
-            return !num;
-        }
-    } else return false;
+    var pattern = /^[a-zA-Z~@#$^*()_+=[\]{}|\\,.?: -]*$/; 
+    return pattern.test(streetName); 
 }
 
 // Test the validation for the username

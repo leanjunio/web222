@@ -22,8 +22,7 @@
      <div class="center">
         <nav>Navigation</nav>
         <div class="body">
-            <form action="https://httpbin.org/post" method="POST">
-
+            <form name="Sign Up" action="https://httpbin.org/post" method="POST">
                 <!-- First Name -->
                 <label for="fName">First Name</label>
                 <input required type="text" name="fName" id="fName"><br>
@@ -78,12 +77,12 @@
                 
                 <!-- Submit -->
                 <input type="submit" value="Submit information" onclick="validate()" />
-                <input type="reset"  value="    Clear   " onclick="clearerrors()"/>
+                <input type="reset"  value="    Clear   " onclick="clear()"/>
                 
             </form>
         </div>
-        <div class="side">
-            <p>Side Panel</p>
+        <div id="side">
+
         </div>
      </div>
      <footer>FOOTER</footer>
