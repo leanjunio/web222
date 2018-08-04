@@ -22,7 +22,7 @@
      <div class="center">
         <nav>Navigation</nav>
         <div class="body">
-            <form name="Sign Up" action="https://httpbin.org/post" method="POST">
+            <form name="Sign Up" action="https://httpbin.org/post" method="POST" onsubmit="return validate();">
                 <!-- First Name -->
                 <label for="fName">First Name</label>
                 <input required type="text" name="fName" id="fName"><br>
@@ -76,7 +76,7 @@
                 <input required type="password" name="password" id="passwordMatch"><br>
                 
                 <!-- Submit -->
-                <input type="submit" value="Submit information" onclick="validate()" />
+                <input type="submit" value="Submit information" />
                 <input type="reset"  value="    Clear   " onclick="clear()"/>
                 
             </form>
